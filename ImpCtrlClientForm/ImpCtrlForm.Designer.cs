@@ -40,18 +40,18 @@
             this.getStatusButton = new System.Windows.Forms.Button();
             this.disconnectButton = new System.Windows.Forms.Button();
             this.connectButton = new System.Windows.Forms.Button();
-            this.logingTabControl = new System.Windows.Forms.TabControl();
-            this.logTabPage = new System.Windows.Forms.TabPage();
-            this.logListBox = new System.Windows.Forms.ListBox();
-            this.ProtokolTabPage = new System.Windows.Forms.TabPage();
-            this.protocolTextBox = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.logStatusStrip = new System.Windows.Forms.StatusStrip();
+            this.logToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timeToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.localTimeTimer = new System.Windows.Forms.Timer(this.components);
+            this.protocolClosableTabs = new PL.TabControl.ClosableTab();
             ((System.ComponentModel.ISupportInitialize)(this.serverInfoDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.opasityTrackBar)).BeginInit();
-            this.logingTabControl.SuspendLayout();
-            this.logTabPage.SuspendLayout();
-            this.ProtokolTabPage.SuspendLayout();
+            this.logStatusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // serverInfoDataGridView
@@ -65,7 +65,7 @@
             this.serverInfoDataGridView.Location = new System.Drawing.Point(5, 45);
             this.serverInfoDataGridView.Name = "serverInfoDataGridView";
             this.serverInfoDataGridView.RowHeadersWidth = 20;
-            this.serverInfoDataGridView.Size = new System.Drawing.Size(786, 225);
+            this.serverInfoDataGridView.Size = new System.Drawing.Size(764, 225);
             this.serverInfoDataGridView.TabIndex = 0;
             this.serverInfoDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.serverInfoDataGridView_CellClick);
             this.serverInfoDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.serverInfoDataGridView_DataError);
@@ -84,14 +84,15 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(796, 37);
+            this.panel1.Size = new System.Drawing.Size(774, 37);
             this.panel1.TabIndex = 9;
             // 
             // onTopButton
             // 
+            this.onTopButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.onTopButton.Image = ((System.Drawing.Image)(resources.GetObject("onTopButton.Image")));
             this.onTopButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.onTopButton.Location = new System.Drawing.Point(755, 6);
+            this.onTopButton.Location = new System.Drawing.Point(735, 6);
             this.onTopButton.Name = "onTopButton";
             this.onTopButton.Size = new System.Drawing.Size(31, 26);
             this.onTopButton.TabIndex = 15;
@@ -102,7 +103,7 @@
             // opasityTrackBar
             // 
             this.opasityTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.opasityTrackBar.Location = new System.Drawing.Point(547, 7);
+            this.opasityTrackBar.Location = new System.Drawing.Point(525, 7);
             this.opasityTrackBar.Maximum = 100;
             this.opasityTrackBar.Minimum = 30;
             this.opasityTrackBar.Name = "opasityTrackBar";
@@ -175,66 +176,77 @@
             this.connectButton.UseVisualStyleBackColor = true;
             this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
             // 
-            // logingTabControl
+            // tabPage1
             // 
-            this.logingTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(192, 74);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(497, 224);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // logStatusStrip
+            // 
+            this.logStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.timeToolStripStatusLabel,
+            this.logToolStripStatusLabel});
+            this.logStatusStrip.Location = new System.Drawing.Point(0, 467);
+            this.logStatusStrip.Name = "logStatusStrip";
+            this.logStatusStrip.Size = new System.Drawing.Size(774, 22);
+            this.logStatusStrip.TabIndex = 13;
+            // 
+            // logToolStripStatusLabel
+            // 
+            this.logToolStripStatusLabel.Name = "logToolStripStatusLabel";
+            this.logToolStripStatusLabel.Size = new System.Drawing.Size(30, 17);
+            this.logToolStripStatusLabel.Text = "Лог:";
+            // 
+            // timeToolStripStatusLabel
+            // 
+            this.timeToolStripStatusLabel.Name = "timeToolStripStatusLabel";
+            this.timeToolStripStatusLabel.Size = new System.Drawing.Size(42, 17);
+            this.timeToolStripStatusLabel.Text = "Время";
+            // 
+            // localTimeTimer
+            // 
+            this.localTimeTimer.Enabled = true;
+            this.localTimeTimer.Interval = 1000;
+            this.localTimeTimer.Tick += new System.EventHandler(this.localTimeTimer_Tick);
+            // 
+            // protocolClosableTabs
+            // 
+            this.protocolClosableTabs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.logingTabControl.Controls.Add(this.logTabPage);
-            this.logingTabControl.Controls.Add(this.ProtokolTabPage);
-            this.logingTabControl.Location = new System.Drawing.Point(5, 276);
-            this.logingTabControl.Name = "logingTabControl";
-            this.logingTabControl.SelectedIndex = 0;
-            this.logingTabControl.Size = new System.Drawing.Size(786, 278);
-            this.logingTabControl.TabIndex = 10;
-            // logTabPage
-            // 
-            this.logTabPage.Controls.Add(this.logListBox);
-            this.logTabPage.Location = new System.Drawing.Point(4, 22);
-            this.logTabPage.Name = "logTabPage";
-            this.logTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.logTabPage.Size = new System.Drawing.Size(778, 252);
-            this.logTabPage.TabIndex = 0;
-            this.logTabPage.Text = "Лог";
-            this.logTabPage.UseVisualStyleBackColor = true;
-            // 
-            // logListBox
-            // 
-            this.logListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.logListBox.FormattingEnabled = true;
-            this.logListBox.Location = new System.Drawing.Point(3, 3);
-            this.logListBox.Name = "logListBox";
-            this.logListBox.Size = new System.Drawing.Size(772, 246);
-            this.logListBox.TabIndex = 3;
-            this.logListBox.DoubleClick += new System.EventHandler(this.logListBox_DoubleClick);
-            // 
-            // ProtokolTabPage
-            // 
-            this.ProtokolTabPage.Controls.Add(this.protocolTextBox);
-            this.ProtokolTabPage.Location = new System.Drawing.Point(4, 22);
-            this.ProtokolTabPage.Name = "ProtokolTabPage";
-            this.ProtokolTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.ProtokolTabPage.Size = new System.Drawing.Size(778, 252);
-            this.ProtokolTabPage.TabIndex = 1;
-            this.ProtokolTabPage.Text = "Протокол Импорта";
-            this.ProtokolTabPage.UseVisualStyleBackColor = true;
-            // 
-            // protocolTextBox
-            // 
-            this.protocolTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.protocolTextBox.Location = new System.Drawing.Point(3, 3);
-            this.protocolTextBox.Multiline = true;
-            this.protocolTextBox.Name = "protocolTextBox";
-            this.protocolTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.protocolTextBox.Size = new System.Drawing.Size(772, 246);
-            this.protocolTextBox.TabIndex = 1;
+            this.protocolClosableTabs.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.protocolClosableTabs.ImageHitArea = new System.Drawing.Point(13, 3);
+            this.protocolClosableTabs.ImageLocation = new System.Drawing.Point(15, 6);
+            this.protocolClosableTabs.Location = new System.Drawing.Point(5, 276);
+            this.protocolClosableTabs.Name = "protocolClosableTabs";
+            this.protocolClosableTabs.Padding = new System.Drawing.Point(12, 3);
+            this.protocolClosableTabs.SelectedIndex = 0;
+            this.protocolClosableTabs.SetImage = ((System.Drawing.Image)(resources.GetObject("protocolClosableTabs.SetImage")));
+            this.protocolClosableTabs.Size = new System.Drawing.Size(764, 188);
+            this.protocolClosableTabs.TabIndex = 12;
             // 
             // ImpCtrlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(796, 560);
-            this.Controls.Add(this.logingTabControl);
+            this.ClientSize = new System.Drawing.Size(774, 489);
+            this.Controls.Add(this.logStatusStrip);
+            this.Controls.Add(this.protocolClosableTabs);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.serverInfoDataGridView);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -247,11 +259,10 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.opasityTrackBar)).EndInit();
-            this.logingTabControl.ResumeLayout(false);
-            this.logTabPage.ResumeLayout(false);
-            this.ProtokolTabPage.ResumeLayout(false);
-            this.ProtokolTabPage.PerformLayout();
+            this.logStatusStrip.ResumeLayout(false);
+            this.logStatusStrip.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -266,13 +277,15 @@
         private System.Windows.Forms.Button disconnectButton;
         private System.Windows.Forms.Button connectButton;
         private System.Windows.Forms.TrackBar opasityTrackBar;
-        private System.Windows.Forms.TabControl logingTabControl;
-        private System.Windows.Forms.TabPage logTabPage;
-        private System.Windows.Forms.ListBox logListBox;
-        private System.Windows.Forms.TabPage ProtokolTabPage;
-        private System.Windows.Forms.TextBox protocolTextBox;
         private System.Windows.Forms.Button onTopButton;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabPage1;
+        private PL.TabControl.ClosableTab protocolClosableTabs;
+        private System.Windows.Forms.StatusStrip logStatusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel logToolStripStatusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel timeToolStripStatusLabel;
+        private System.Windows.Forms.Timer localTimeTimer;
     }
 }
 

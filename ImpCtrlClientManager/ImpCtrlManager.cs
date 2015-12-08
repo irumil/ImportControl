@@ -99,12 +99,14 @@ namespace ImpCtrlClientManager
 
         public string[] GetFullLogWork(int serverIndex)
         {
+            WriteLog("Запрошен лог с сервера " + _listManger[serverIndex].Description);
             return _listManger[serverIndex].GetFullLogFromServer();
         }
 
         public string GetImportProtocolByServer(int serverIndex)
         {
-            return _listManger[serverIndex].GetImportProtocol();
+            WriteLog("Запрошен протокол Импорта с сервера " + _listManger[serverIndex].Description);
+           return _listManger[serverIndex].GetImportProtocol();
         }
 
         public string GetServerNameByIndex(int serverIndex)

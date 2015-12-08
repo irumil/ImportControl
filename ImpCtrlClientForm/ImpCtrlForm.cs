@@ -1,6 +1,9 @@
 ﻿using ImpCtrlClientManager;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
+using ImpCtrlClientForm.Properties;
+using PL.TabControl;
 
 namespace ImpCtrlClientForm
 {
@@ -44,8 +47,7 @@ namespace ImpCtrlClientForm
 
         private void AppendLogToListBox(string info)
         {
-            logListBox.Items.Add(info);
-            logListBox.SelectedIndex = logListBox.Items.Count - 1;
+            logStatusStrip.Items[1].Text=info;
         }
 
         private void disconnectButton_Click(object sender, EventArgs e)
@@ -73,34 +75,75 @@ namespace ImpCtrlClientForm
             {
                 case 4:
                 {
-                    logingTabControl.SelectedIndex = 0;
+                    var logTab = new TabPage("Лог службы " + _impCtrlManager.GetServerNameByIndex(dataGridView.CurrentRow.Index));
+                    
+                    var logListBox = new ListBox
+                    {
+                        Dock = DockStyle.Fill,
+                        Parent = logTab
+                    };
 
                     logListBox.Items.Add(new string('-', 50));
                     logListBox.Items.AddRange(_impCtrlManager.GetFullLogWork(dataGridView.CurrentRow.Index));
                     logListBox.Items.Add(new string('-', 50));
-
                     logListBox.SelectedIndex = logListBox.Items.Count - 1;
-                }
-                    break;
+
+                    protocolClosableTabs.TabPages.Add(logTab);
+                    protocolClosableTabs.SelectedIndex = protocolClosableTabs.TabCount - 1;
+
+                }break;
                 case 5:
                 {
                     string importProtokol = _impCtrlManager.GetImportProtocolByServer(dataGridView.CurrentRow.Index);
 
-                    if (importProtokol == String.Empty) return;
+                    if (importProtokol == string.Empty) return;
 
-                    logingTabControl.SelectedIndex = 1;
+                    var protocolTab = new TabPage("Протокол Импорта " + _impCtrlManager.GetServerNameByIndex(dataGridView.CurrentRow.Index));
+                    
+                    var protocolTextBox = new TextBox
+                    {
+                        Multiline = true,
+                        Dock = DockStyle.Fill,
+                        Parent = protocolTab,
+                        ScrollBars = ScrollBars.Vertical
+                    };
+
+                    var refreshImpProtocolButton = new Button
+                    {
+                        Location = new Point(2, 2),
+                        Cursor = DefaultCursor,
+                        Height = 25,
+                        Width = 25,
+                        Image = Resources.refresh,
+                        Tag = dataGridView.CurrentRow.Index,
+                        Parent = protocolTextBox
+                    };
+
+                    refreshImpProtocolButton.BringToFront();
+                    refreshImpProtocolButton.Click += OnRefreshImpProtocolClick;
                     protocolTextBox.AppendText(importProtokol);
                     ScrollToBottom(protocolTextBox);
-                }
-                    break;
+
+                    protocolClosableTabs.TabPages.Add(protocolTab);
+                    protocolClosableTabs.SelectedIndex = protocolClosableTabs.TabCount - 1;
+
+                }break;
+
                 case 6:
                     {
                         _impCtrlManager.GetScreenShotByIndex(dataGridView.CurrentRow.Index); 
                     }break;
-
             }
         }
 
+      
+        private void OnRefreshImpProtocolClick(object sender, EventArgs e)
+        {
+            var parentObject = (((Button) sender).Parent);
+            if (parentObject == null) return;
+            (parentObject as TextBox).Text = _impCtrlManager.GetImportProtocolByServer((int)((Button)sender).Tag);
+            ScrollToBottom((parentObject as TextBox));
+        }
         private void getStatusButton_Click(object sender, EventArgs e)
         {
             _impCtrlManager.GetStatus();
@@ -144,11 +187,6 @@ namespace ImpCtrlClientForm
             SetTransparentWindow(((TrackBar)sender).Value);
         }
 
-        private void logListBox_DoubleClick(object sender, EventArgs e)
-        {
-            ((ListBox) sender).Items.Clear();
-        }
-
         private void ImpCtrlForm_FormClosing(object sender, FormClosingEventArgs e)
         {
 
@@ -181,6 +219,11 @@ namespace ImpCtrlClientForm
         private void onTopButton_Click(object sender, EventArgs e)
         {
             TopMost = !TopMost;
+        }
+
+        private void localTimeTimer_Tick(object sender, EventArgs e)
+        {
+            logStatusStrip.Items[0].Text = DateTime.Now.ToLongTimeString();
         }
        
     }

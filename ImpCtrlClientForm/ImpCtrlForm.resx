@@ -187,6 +187,23 @@
         FefO/kz/8q3/AEFGyx+xaI5YAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="logStatusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>114, 17</value>
+  </metadata>
+  <metadata name="localTimeTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>242, 17</value>
+  </metadata>
+  <data name="protocolClosableTabs.SetImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        Qk12AQAAAAAAADYAAAAoAAAACgAAAAoAAAABABgAAAAAAAAAAADEDgAAxA4AAAAAAAAAAAAA9/f3yMjI
+        ZWVlw8PD9/f39vb2w8PDZmZmysrK9vb2AADJyclNTU0uLi5ISEjGxsbFxcVISEguLi5NTU3KysoAAGZm
+        Zi8vLzIyMjAwMEJCQkJCQjAwMDIyMi4uLmhoaAAAw8PDSEhIMDAwMjIyMTExMTExMjIyMDAwSUlJxcXF
+        AAD39/fExMRBQUExMTEyMjIyMjIxMTFCQkLGxsb39/cAAPf398fHx0JCQjExMTIyMjIyMjExMUFBQcTE
+        xPj4+AAAxcXFSUlJMDAwMjIyMTExMTExMjIyMDAwSEhIw8PDAABoaGguLi4yMjIwMDBCQkJCQkIwMDAy
+        MjIvLy9nZ2cAAMvLy01NTS4uLkhISMbGxsbGxkhISC4uLk1NTcnJyQAA9/f3y8vLZmZmxMTE9/f3+Pj4
+        w8PDZmZmycnJ+Pj4AAA=
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAgBAAAAAAAAAAAAAAAAAAAAAA
