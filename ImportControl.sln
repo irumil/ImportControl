@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServerSide", "ServerSide", "{266B97BC-4007-4572-B8B6-BA6B0BB66D83}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClientSide", "ClientSide", "{1425AB3A-6729-4901-9CC2-0C01D8A00035}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImpCtrlHost", "ImpCtrlHost\ImpCtrlHost.csproj", "{13DCC2CA-5376-4F1E-89FE-3E36769AD1EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImpCtrlWcfService", "ImpCtrlWcfService\ImpCtrlWcfService.csproj", "{15B3E0D2-6217-493A-A690-158C497F5318}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImpCtrlClientManager", "ImpCtrlClientManager\ImpCtrlClientManager.csproj", "{08D0F17C-6F83-43F8-B9D7-C107482C9AE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImpCtrlClientForm", "ImpCtrlClientForm\ImpCtrlClientForm.csproj", "{DCA13DED-A44E-4CE0-B8CC-72EC53716C57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImpStatusLibrary", "ImpStatusLibrary\ImpStatusLibrary.csproj", "{5CD5C9B3-AB94-4722-93D7-F7369C81DF9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImpCtrlSetting", "ImpCtrlSetting\ImpCtrlSetting.csproj", "{F72741F0-B58C-447C-A48E-EDAE56F05900}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13DCC2CA-5376-4F1E-89FE-3E36769AD1EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13DCC2CA-5376-4F1E-89FE-3E36769AD1EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13DCC2CA-5376-4F1E-89FE-3E36769AD1EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13DCC2CA-5376-4F1E-89FE-3E36769AD1EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08D0F17C-6F83-43F8-B9D7-C107482C9AE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08D0F17C-6F83-43F8-B9D7-C107482C9AE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08D0F17C-6F83-43F8-B9D7-C107482C9AE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08D0F17C-6F83-43F8-B9D7-C107482C9AE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCA13DED-A44E-4CE0-B8CC-72EC53716C57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCA13DED-A44E-4CE0-B8CC-72EC53716C57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCA13DED-A44E-4CE0-B8CC-72EC53716C57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCA13DED-A44E-4CE0-B8CC-72EC53716C57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CD5C9B3-AB94-4722-93D7-F7369C81DF9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CD5C9B3-AB94-4722-93D7-F7369C81DF9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CD5C9B3-AB94-4722-93D7-F7369C81DF9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CD5C9B3-AB94-4722-93D7-F7369C81DF9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F72741F0-B58C-447C-A48E-EDAE56F05900}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F72741F0-B58C-447C-A48E-EDAE56F05900}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F72741F0-B58C-447C-A48E-EDAE56F05900}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F72741F0-B58C-447C-A48E-EDAE56F05900}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{13DCC2CA-5376-4F1E-89FE-3E36769AD1EC} = {266B97BC-4007-4572-B8B6-BA6B0BB66D83}
+		{15B3E0D2-6217-493A-A690-158C497F5318} = {266B97BC-4007-4572-B8B6-BA6B0BB66D83}
+		{5CD5C9B3-AB94-4722-93D7-F7369C81DF9A} = {266B97BC-4007-4572-B8B6-BA6B0BB66D83}
+		{F72741F0-B58C-447C-A48E-EDAE56F05900} = {266B97BC-4007-4572-B8B6-BA6B0BB66D83}
+		{08D0F17C-6F83-43F8-B9D7-C107482C9AE0} = {1425AB3A-6729-4901-9CC2-0C01D8A00035}
+		{DCA13DED-A44E-4CE0-B8CC-72EC53716C57} = {1425AB3A-6729-4901-9CC2-0C01D8A00035}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ImpStatusService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IImpStatusService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8737/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8737/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8737/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.Drawing" />
+      <xsd:import schemaLocation="http://localhost:8737/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IImpStatusService_RegistrCallbackClientFunc_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrCallbackClientFunc" />
+  </wsdl:message>
+  <wsdl:message name="IImpStatusService_RegistrCallbackClientFunc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrCallbackClientFuncResponse" />
+  </wsdl:message>
+  <wsdl:message name="IImpStatusService_GetLastSatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastSatus" />
+  </wsdl:message>
+  <wsdl:message name="IImpStatusService_GetLastSatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastSatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IImpStatusService_GetImageStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageStatus" />
+  </wsdl:message>
+  <wsdl:message name="IImpStatusService_GetImageStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IImpStatusService_GetScreenshot_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetScreenshot" />
+  </wsdl:message>
+  <wsdl:message name="IImpStatusService_GetScreenshot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetScreenshotResponse" />
+  </wsdl:message>
+  <wsdl:message name="IImpStatusService_GetFullLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullLog" />
+  </wsdl:message>
+  <wsdl:message name="IImpStatusService_GetFullLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IImpStatusService_GetImportProtocol_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImportProtocol" />
+  </wsdl:message>
+  <wsdl:message name="IImpStatusService_GetImportProtocol_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImportProtocolResponse" />
+  </wsdl:message>
+  <wsdl:message name="IImpStatusService_OnStatusComplete_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnStatusComplete" />
+  </wsdl:message>
+  <wsdl:portType name="IImpStatusService">
+    <wsdl:operation name="RegistrCallbackClientFunc">
+      <wsdl:input wsaw:Action="http://tempuri.org/IImpStatusService/RegistrCallbackClientFunc" message="tns:IImpStatusService_RegistrCallbackClientFunc_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IImpStatusService/RegistrCallbackClientFuncResponse" message="tns:IImpStatusService_RegistrCallbackClientFunc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastSatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IImpStatusService/GetLastSatus" message="tns:IImpStatusService_GetLastSatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IImpStatusService/GetLastSatusResponse" message="tns:IImpStatusService_GetLastSatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IImpStatusService/GetImageStatus" message="tns:IImpStatusService_GetImageStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IImpStatusService/GetImageStatusResponse" message="tns:IImpStatusService_GetImageStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScreenshot">
+      <wsdl:input wsaw:Action="http://tempuri.org/IImpStatusService/GetScreenshot" message="tns:IImpStatusService_GetScreenshot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IImpStatusService/GetScreenshotResponse" message="tns:IImpStatusService_GetScreenshot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFullLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IImpStatusService/GetFullLog" message="tns:IImpStatusService_GetFullLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IImpStatusService/GetFullLogResponse" message="tns:IImpStatusService_GetFullLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImportProtocol">
+      <wsdl:input wsaw:Action="http://tempuri.org/IImpStatusService/GetImportProtocol" message="tns:IImpStatusService_GetImportProtocol_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IImpStatusService/GetImportProtocolResponse" message="tns:IImpStatusService_GetImportProtocol_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnStatusComplete">
+      <wsdl:output wsaw:Action="http://tempuri.org/IImpStatusService/OnStatusComplete" message="tns:IImpStatusService_OnStatusComplete_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IImpStatusService" type="tns:IImpStatusService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IImpStatusService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="RegistrCallbackClientFunc">
+      <soap12:operation soapAction="http://tempuri.org/IImpStatusService/RegistrCallbackClientFunc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastSatus">
+      <soap12:operation soapAction="http://tempuri.org/IImpStatusService/GetLastSatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageStatus">
+      <soap12:operation soapAction="http://tempuri.org/IImpStatusService/GetImageStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScreenshot">
+      <soap12:operation soapAction="http://tempuri.org/IImpStatusService/GetScreenshot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFullLog">
+      <soap12:operation soapAction="http://tempuri.org/IImpStatusService/GetFullLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImportProtocol">
+      <soap12:operation soapAction="http://tempuri.org/IImpStatusService/GetImportProtocol" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnStatusComplete">
+      <soap12:operation soapAction="http://tempuri.org/IImpStatusService/OnStatusComplete" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ImpStatusService">
+    <wsdl:port name="NetTcpBinding_IImpStatusService" binding="tns:NetTcpBinding_IImpStatusService">
+      <soap12:address location="net.tcp://localhost:8738/ImpCtrlSvc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8738/ImpCtrlSvc</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>ksarm@KTZH.RAILWAYS.LOCAL</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
