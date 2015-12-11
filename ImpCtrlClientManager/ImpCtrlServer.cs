@@ -75,7 +75,7 @@ namespace ImpCtrlClientManager
         {
             try
             {
-                if (_clientWcf == null || _clientWcf.State== CommunicationState.Faulted)
+                if (_clientWcf == null || _clientWcf.State == CommunicationState.Closed || _clientWcf.State== CommunicationState.Faulted)
                 {
                     _clientWcf = new ImpStatusServiceClient(new InstanceContext(this), "NetTcpBinding_IImpStatusService");
                     _clientWcf.Endpoint.Address =

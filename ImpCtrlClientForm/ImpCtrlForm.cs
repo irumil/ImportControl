@@ -135,7 +135,6 @@ namespace ImpCtrlClientForm
                     }break;
             }
         }
-
       
         private void OnRefreshImpProtocolClick(object sender, EventArgs e)
         {
